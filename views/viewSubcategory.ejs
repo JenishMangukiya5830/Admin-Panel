@@ -1,0 +1,68 @@
+<%- include('header') %>
+
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+        <!-- Content -->
+
+        <div class="container-xxl flex-grow-1 container-p-y">
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
+
+            <!-- Basic Bootstrap Table -->
+            <div class="card">
+                <h5 class="card-header">Table Basic</h5>
+                <div class="table-responsive text-nowrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Category_Name</th>
+                                <th>Subcategory_Name</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                            
+                            <%
+                                let cnt = 0;
+                                for(let i in data) 
+                                { 
+                                    cnt++
+                            %>
+                                        <tr>
+                                            <td>
+                                                <%= cnt %>
+                                            </td>
+                                            <td>
+                                                <%= data[i].category.category %>
+                                            </td>
+                                            <td>
+                                                <%= data[i].subcategory %>
+                                            </td>
+                                            <td>
+                                                <a href="DeletSubCategory/<%= data[i].id %>">Delete</a>
+                                            </td>
+                                        </tr>
+                            <%  } %>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--/ Basic Bootstrap Table -->
+
+            <hr class="my-5" />
+
+            <div class="content-backdrop fade"></div>
+        </div>
+    </div>
+    <!-- Content wrapper -->
+
+                
+    <script src="../Public/Public/assets/vendor/libs/jquery/jquery-min.js"></script>
+    <script>
+      $(document).ready(function(){
+       $(".table").addClass("active open");
+     });
+    </script>
+   
+<%- include('footer') %>
